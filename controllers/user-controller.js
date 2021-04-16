@@ -19,7 +19,6 @@ module.exports = (app) => {
                     UsersService.createUser(credentials)
                         .then(user => {
                             req.session['profile'] = user
-                            console.log(user)
                             res.send(user)
                         })
                 }
@@ -31,8 +30,14 @@ module.exports = (app) => {
         res.send(currUser)
     }
 
+    const login = (req, res) => {
+        let credentials = req.body
+
+        // UsersService
+    }
+
     app.post('/api/users/register', register)
-    app.get('/api/users/profile', profile)
-    // app.post('/api/login', login)
-    // app.post('/api/logout', logout)
+    app.post('/api/users/profile', profile)
+    app.post('/api/users/login', login)
+    // app.post('/api/users/logout', logout)
 }
