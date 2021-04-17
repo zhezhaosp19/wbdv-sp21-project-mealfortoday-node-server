@@ -7,7 +7,12 @@ const createUser = (newUser) => {
     return usersModel.create(newUser)
 }
 
+const findUserByCredentials = (credentials) => {
+    return usersModel.findOne({username: credentials.username, password: credentials.password})
+}
+
 module.exports = {
     findUserByUsername,
-    createUser
+    createUser,
+    findUserByCredentials
 }

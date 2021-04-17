@@ -32,6 +32,37 @@ module.exports = (app) => {
 
     const login = (req, res) => {
         let credentials = req.body
+        let username = req.body.username;
+        let password = req.body.password;
+
+        UsersService.findUserByUsername(username)
+            .then(actualUser => {
+                //"1" => user exists, but wrong password
+                if(actualUser.length > 0) {
+                    // res.send("1")
+                    UsersService.findUserByCredentials(credentials)
+                        .then(user => {
+                            if(user) {
+                                req.session['profile'] = user
+                                res.send(user)
+                            } else {
+                                res.send("1")
+                            }
+                        })
+                } else {
+                    //"0" => user not exists
+                    res.send("0")
+                }
+            })
+        // UsersService.findUserByCredentials(credentials)
+        //     .then(actualUser => {
+        //         if(actualUser) {
+        //             req.session['profile'] = actualUser
+        //             res.send(actualUser)
+        //         } else {
+        //             res.send("0")
+        //         }
+        //     })
 
         // UsersService
     }
