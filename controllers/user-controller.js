@@ -54,17 +54,6 @@ module.exports = (app) => {
                     res.send("0")
                 }
             })
-        // UsersService.findUserByCredentials(credentials)
-        //     .then(actualUser => {
-        //         if(actualUser) {
-        //             req.session['profile'] = actualUser
-        //             res.send(actualUser)
-        //         } else {
-        //             res.send("0")
-        //         }
-        //     })
-
-        // UsersService
     }
 
     app.post('/api/users/register', register)
