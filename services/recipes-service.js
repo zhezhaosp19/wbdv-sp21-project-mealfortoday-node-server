@@ -11,10 +11,10 @@ const createRecipe = (name, recipe) => {
         })
 }
 
-const findRecipe = () => {
-
-}
+const findAllRecipe = () =>
+    recipesModel.find()
 
 module.exports = {
-    createRecipe
+    createRecipe,
+    findAllRecipe
 }

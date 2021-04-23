@@ -4,4 +4,11 @@ module.exports = (app) => {
     app.post('/api/recipes/:name', (req, res) =>
         recipeService.createRecipe(req.params.name, req.body)
             .then(recipe => res.send(recipe)))
+
+    app.get('/api/recipes/', (req, res) =>
+        recipeService.findAllRecipe()
+            .then(allRecipes => res.json(allRecipes)))
+
+    app.get('api/recipes/:name', (req, res) =>
+        re)
 }
