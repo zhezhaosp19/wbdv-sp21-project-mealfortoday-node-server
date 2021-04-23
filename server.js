@@ -32,6 +32,6 @@ app.use(function (req, res, next) {
 
 require('./controllers/demos.controller')(app)
 require('./controllers/user-controller')(app)
-
+require('./controllers/recipes-controller')(app)
 
 app.listen(4000)
