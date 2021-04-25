@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const createRecipeSchema = mongoose.Schema({
-    idMeal: String,
+    _id: String,
     strMeal: String,
     strInstructions: [String],
     strIngredient1: String,
@@ -14,7 +14,7 @@ const createRecipeSchema = mongoose.Schema({
     strMeasure3: String,
     strMeasure4: String,
     strMeasure5: String,
-    strMealThumb: webkitURL,
+    strMealThumb: String,
     username: String,
     strArea: String,
     strCategory: String
