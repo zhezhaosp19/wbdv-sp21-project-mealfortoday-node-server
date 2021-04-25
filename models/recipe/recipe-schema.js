@@ -1,13 +1,23 @@
 const mongoose = require("mongoose")
 
 const createRecipeSchema = mongoose.Schema({
-    id: String,
-    name: String,
-    keywords: [String],
-    area: String,
-    category: String,
-    ingredients: [String],
-    instructions: [String]
+    idMeal: String,
+    strMeal: String,
+    strInstructions: [String],
+    strIngredient1: String,
+    strIngredient2: String,
+    strIngredient3: String,
+    strIngredient4: String,
+    strIngredient5: String,
+    strMeasure1: String,
+    strMeasure2: String,
+    strMeasure3: String,
+    strMeasure4: String,
+    strMeasure5: String,
+    strMealThumb: webkitURL,
+    username: String,
+    strArea: String,
+    strCategory: String
 }, {collection: 'recipes'})
 
 module.exports = createRecipeSchema

@@ -9,8 +9,7 @@ const findAllRecipe = () =>
     recipesModel.find()
 
 const findRecipe = (name) =>
-
-    recipesModel.find({name: name})
+    recipesModel.find({strMeal: name})
 
 module.exports = {
     createRecipe,
