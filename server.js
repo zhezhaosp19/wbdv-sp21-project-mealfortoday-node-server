@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 
+// const uri = process.env.MONGODB_URI
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -14,7 +16,9 @@ app.use(session({
 }))
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/project-db',
+mongoose.connect(
+    'mongodb://localhost:27017/project-db',
+    // uri,
     {useNewUrlParser: true, useUnifiedTopology: true})
 
 
@@ -33,5 +37,8 @@ app.use(function (req, res, next) {
 require('./controllers/demos.controller')(app)
 require('./controllers/user-controller')(app)
 require('./controllers/recipes-controller')(app)
+// require('./controllers/profile-controller')(app)
 
+
+// app.listen(process.env.PORT);
 app.listen(4000)
