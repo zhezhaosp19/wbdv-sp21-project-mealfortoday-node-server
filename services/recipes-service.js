@@ -2,19 +2,18 @@ const recipesModel = require('../models/recipe/recipe-model')
 
 const createRecipe = (name, recipe) => {
     return recipesModel
-        .create({
-            name: name,
-            area: recipe.area,
-            category: recipe.category,
-            ingredients: recipe.ingredients,
-            instructions: recipe.instructions
-        })
+        .create({recipe})
 }
 
 const findAllRecipe = () =>
     recipesModel.find()
 
+const findRecipe = (name) =>
+
+    recipesModel.find({name: name})
+
 module.exports = {
     createRecipe,
-    findAllRecipe
+    findAllRecipe,
+    findRecipe
 }
