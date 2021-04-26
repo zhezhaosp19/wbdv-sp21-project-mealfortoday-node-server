@@ -12,4 +12,8 @@ module.exports = (app) => {
     app.get('/api/recipes/:name', (req, res) =>
         recipeService.findRecipe(req.params.name)
             .then(recipe => res.json(recipe)))
+
+  app.get('/api/recipes/id/:idMeal', (req, res) =>
+      recipeService.findRecipeById(req.params.idMeal)
+      .then(recipe => res.json(recipe)))
 }
