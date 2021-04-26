@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 const createRecipeSchema = mongoose.Schema({
-    _id: String,
+    //_id: String,
     strMeal: String,
-    strInstructions: [String],
+    strInstructions: String,
     strIngredient1: String,
     strIngredient2: String,
     strIngredient3: String,
