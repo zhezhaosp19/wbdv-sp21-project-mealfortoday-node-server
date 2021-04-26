@@ -8,7 +8,8 @@ const userRegisterSchema = mongoose.Schema({
     gender: {type: String, enum: ["Male", "Female", "Other", "Don't want answer"]},
     area: String,
     bio: String,
-    flavor: String
+    flavor: String,
+    favorates: [String]
     // profile: [{
     //     type: String,
     //     ref: 'profileModel'

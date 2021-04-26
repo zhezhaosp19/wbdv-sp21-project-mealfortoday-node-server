@@ -70,8 +70,9 @@ module.exports = (app) => {
         let area = profile.area
         let bio = profile.bio
         let flavor = profile.flavor
+        let portrait = profile.portrait
         // let username = req.params["username"]
-        UsersService.updateProfile(username, {email, gender, area, bio, flavor})
+        UsersService.updateProfile(username, {email, gender, area, bio, flavor, portrait})
             .then(currProfile => {
                 console.log(currProfile)
                 res.send(currProfile)
