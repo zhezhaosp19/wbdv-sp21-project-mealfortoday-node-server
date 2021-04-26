@@ -9,7 +9,8 @@ const findAllRecipe = () =>
     recipesModel.find()
 
 const findRecipe = (name) =>
-    recipesModel.find({strMeal: name})
+     recipesModel.find({strMeal: name})
+    // recipesModel.find({$text: {$search: name}})
 
 module.exports = {
     createRecipe,
