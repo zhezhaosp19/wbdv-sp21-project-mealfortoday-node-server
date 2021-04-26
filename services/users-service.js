@@ -11,8 +11,13 @@ const findUserByCredentials = (credentials) => {
     return usersModel.findOne({username: credentials.username, password: credentials.password})
 }
 
+const findAllFavoritesForAUser = (username) => {
+    return usersModel.find({username: username})
+}
+
 module.exports = {
     findUserByUsername,
     createUser,
-    findUserByCredentials
+    findUserByCredentials,
+    findAllFavoritesForAUser
 }
