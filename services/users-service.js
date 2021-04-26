@@ -1,5 +1,4 @@
 const usersModel = require("../models/users-model")
-// const profileModel = require("../models/profile/profile-model")
 
 const findUserByUsername = (username) => {
     return usersModel.find({username: username})
@@ -12,21 +11,8 @@ const findUserByCredentials = (credentials) => {
     return usersModel.findOne({username: credentials.username, password: credentials.password})
 }
 
-const findProfileByUsername = (username) => {
-    return usersModel.find({username})
-        .populate("profile")
-        .exec()
-}
-
-const updateProfile = (username, profile) => {
-    {console.log(profile)}
-    return usersModel.updateOne({username: username}, {$set: profile})
-}
-
 module.exports = {
     findUserByUsername,
     createUser,
-    findUserByCredentials,
-    findProfileByUsername,
-    updateProfile
+    findUserByCredentials
 }

@@ -56,40 +56,8 @@ module.exports = (app) => {
             })
     }
 
-    const logout = (req, res) => {
-        res.clearCookie('profile');
-
-        // res.redirect('/')
-    }
-
-    const updateProfile = (req, res) => {
-        let profile = req.body
-        let username = profile.username;
-        let email = profile.email
-        let gender = profile.gender
-        let area = profile.area
-        let bio = profile.bio
-        let flavor = profile.flavor
-        // let username = req.params["username"]
-        UsersService.updateProfile(username, {email, gender, area, bio, flavor})
-            .then(currProfile => {
-                console.log(currProfile)
-                res.send(currProfile)
-            })
-    }
-
-    // const findProfileByUsername = (req, res) => {
-    //     // let username = req.params["username"]
-    //     UsersService.findProfileByUsername()
-    //         .then(profile => res.send(profile))
-    // }
-
-
     app.post('/api/users/register', register)
     app.post('/api/users/profile', profile)
     app.post('/api/users/login', login)
-    app.post('/api/users/logout', logout)
-
-    app.post('/api/users/editprofile', updateProfile)
-    // app.get('/api/users/profile', findProfileByUsername)
+    // app.post('/api/users/logout', logout)
 }

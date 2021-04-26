@@ -5,14 +5,7 @@ const userRegisterSchema = mongoose.Schema({
     email : String,
     role : {type: String, enum: ["Client", "Chef", "Admin"]},
     birthday : String,
-    gender: {type: String, enum: ["Male", "Female", "Other", "Don't want answer"]},
-    area: String,
-    bio: String,
-    flavor: String
-    // profile: [{
-    //     type: String,
-    //     ref: 'profileModel'
-    // }]
+    Gender: {type: String, enum: ["Male", "Female"]},
 }, {collection: "users"})
 
 module.exports = userRegisterSchema
