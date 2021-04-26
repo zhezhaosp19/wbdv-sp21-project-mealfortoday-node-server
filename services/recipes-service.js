@@ -11,8 +11,12 @@ const findAllRecipe = () =>
 const findRecipe = (name) =>
     recipesModel.find({strMeal: name})
 
+const deleteRecipe = (name, recipe) =>
+    recipesModel.remove(recipe)
+
 module.exports = {
     createRecipe,
     findAllRecipe,
-    findRecipe
+    findRecipe,
+    deleteRecipe
 }
