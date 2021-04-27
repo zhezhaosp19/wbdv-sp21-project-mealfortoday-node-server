@@ -23,6 +23,11 @@ const updateProfile = (username, profile) => {
     return usersModel.updateOne({username: username}, {$set: profile})
 }
 
+//const findAllFavoritesForAUser = (username) = {
+//    return usersModel.find({username: username})
+//        .populate('users').exec()
+//}
+
 module.exports = {
     findUserByUsername,
     createUser,

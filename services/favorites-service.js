@@ -24,12 +24,12 @@ const removeFavorite = (recipeId, username) => {
 
 const addFavoriteToUser = (recipeId, username) => {
     return usersModel.updateOne(
-        {username: username}, {$push: {favorates, recipeId}}
+        {username: username}, {$push: {favorites, recipeId}}
     )
 }
 
 module.exports = {
-    findAllUsersForAFavorite, 
+    findAllUsersForAFavorite,
     addFavoriteToMeal, 
     removeFavorite,
     addFavoriteToUser

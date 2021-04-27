@@ -85,7 +85,11 @@ module.exports = (app) => {
     //     UsersService.findProfileByUsername()
     //         .then(profile => res.send(profile))
     // }
-
+//    const findAllFavoritesForAUser = (req, res) => {
+//        let username = req.params.username
+//        UsersService.findAllFavoritesForAUser(username)
+//            .then()
+//    }
 
     app.post('/api/users/register', register)
     app.post('/api/users/profile', profile)
@@ -93,5 +97,6 @@ module.exports = (app) => {
     app.post('/api/users/logout', logout)
 
     app.post('/api/users/editprofile', updateProfile)
+//    app.get('/api/favorites/user/:username', findAllFavoritesForAUser)
     // app.get('/api/users/profile', findProfileByUsername)
 }
