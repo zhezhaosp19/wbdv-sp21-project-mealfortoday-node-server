@@ -13,19 +13,22 @@ app.use(session({
     // cookie: { secure: true }
 }))
 
+require('dotenv').config();
+
 const cors = require('cors');
 app.use(cors({credentials: true, origin: 'https://wbdv-sp21-mealfortoday.herokuapp.com/'}));
 const mongoose = require('mongoose')
 // mongoose.connect('mongodb://localhost:27017/project-db',
 //     {useNewUrlParser: true, useUnifiedTopology: true})
-
-mongoose.connect("mongodb+srv://xiang:zhang@whiteboard-a8.bd3rw.mongodb.net/projectdb?retryWrites=true&w=majority",
+// "mongodb+srv://xiang:zhang@whiteboard-a8.bd3rw.mongodb.net/projectdb?retryWrites=true&w=majority"
+const mongoAtlasUri = process.env.MONGODB_URI
+mongoose.connect(mongoAtlasUri,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 //Configures CORS
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'https://wbdv-sp21-mealfortoday.herokuapp.com/');
+    res.header('Access-Control-Allow-Origin',  `{process.env.ALLOW_ORIGIN}`);
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested-With, Origin');
     res.header('Access-Control-Allow-Methods',
