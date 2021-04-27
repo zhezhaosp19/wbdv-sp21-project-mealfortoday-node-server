@@ -58,8 +58,9 @@ module.exports = (app) => {
 
     const logout = (req, res) => {
         res.clearCookie('profile');
+        req.logout();
 
-        // res.redirect('/')
+        res.redirect('/')
     }
 
     const updateProfile = (req, res) => {

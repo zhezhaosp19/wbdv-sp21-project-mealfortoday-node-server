@@ -9,6 +9,7 @@ const userRegisterSchema = mongoose.Schema({
     area: String,
     bio: String,
     flavor: String,
+    portrait: String,
     favorates: [String]
     // profile: [{
     //     type: String,
