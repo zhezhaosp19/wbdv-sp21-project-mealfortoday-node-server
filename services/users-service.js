@@ -4,6 +4,12 @@ const usersModel = require("../models/users-model")
 const findUserByUsername = (username) => {
     return usersModel.find({username: username})
 }
+
+const findAllUsers = () => {
+    return usersModel.find()
+}
+
+
 const createUser = (newUser) => {
     return usersModel.create(newUser)
 }
@@ -23,15 +29,18 @@ const updateProfile = (username, profile) => {
     return usersModel.updateOne({username: username}, {$set: profile})
 }
 
+
 //const findAllFavoritesForAUser = (username) = {
 //    return usersModel.find({username: username})
 //        .populate('users').exec()
 //}
+
 
 module.exports = {
     findUserByUsername,
     createUser,
     findUserByCredentials,
     findProfileByUsername,
-    updateProfile
+    updateProfile,
+    findAllUsers
 }
