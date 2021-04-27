@@ -57,10 +57,16 @@ module.exports = (app) => {
     }
 
     const logout = (req, res) => {
-        res.clearCookie('profile');
-        req.logout();
+        req.clearCookie('profile');
+        req.user.save();
+        // req.logout();
 
         res.redirect('/')
+        // console.log(req)
+        // req.session.destroy(() => {
+        //     req.logout()
+        //     res.redirect('/')
+        // })
     }
 
     const updateProfile = (req, res) => {
