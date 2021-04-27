@@ -10,7 +10,7 @@ const userRegisterSchema = mongoose.Schema({
     bio: String,
     flavor: String,
     portrait: String,
-    favorates: [String]
+    favorites: [String]
     // profile: [{
     //     type: String,
     //     ref: 'profileModel'

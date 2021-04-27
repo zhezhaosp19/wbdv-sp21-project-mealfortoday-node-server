@@ -28,6 +28,10 @@ const addFavoriteToUser = (recipeId, username) => {
     )
 }
 
+// const createFavorite = (newUser) => {
+//     return favoritesModel.create(newUser)
+// }
+
 module.exports = {
     findAllUsersForAFavorite,
     addFavoriteToMeal, 
