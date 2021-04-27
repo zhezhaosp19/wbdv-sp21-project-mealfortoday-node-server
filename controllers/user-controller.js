@@ -57,11 +57,16 @@ module.exports = (app) => {
     }
 
     const logout = (req, res) => {
-        req.clearCookie('profile');
-        req.user.save();
+        req.session.destroy(() => {
+            res.clearCookie('profile');
+            console.log("logout successfully")
+            res.redirect('/')
+        });
+        
+        // req.user.save();
         // req.logout();
-
-        res.redirect('/')
+        // res.send("0")
+        
         // console.log(req)
         // req.session.destroy(() => {
         //     req.logout()
@@ -116,7 +121,7 @@ module.exports = (app) => {
     app.post('/api/users/register', register)
     app.post('/api/users/profile', profile)
     app.post('/api/users/login', login)
-    app.post('/api/users/logout', logout)
+    app.get('/api/users/logout', logout)
     app.post('/api/users/editprofile', updateProfile)
 
     app.get('/api/users', findAllUsers)
