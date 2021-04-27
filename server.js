@@ -13,6 +13,8 @@ app.use(session({
     // cookie: { secure: true }
 }))
 
+const cors = require('cors');
+app.use(cors({credentials: true, origin: 'https://wbdv-sp21-mealfortoday.herokuapp.com/'}));
 const mongoose = require('mongoose')
 // mongoose.connect('mongodb://localhost:27017/project-db',
 //     {useNewUrlParser: true, useUnifiedTopology: true})
