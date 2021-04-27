@@ -23,14 +23,14 @@ const mongoose = require('mongoose')
 //     {useNewUrlParser: true, useUnifiedTopology: true})
 // "mongodb+srv://xiang:zhang@whiteboard-a8.bd3rw.mongodb.net/projectdb?retryWrites=true&w=majority"
 
-const mongoAtlasUri = process.env.MONGODB_URI;
+const mongoAtlasUri = "mongodb+srv://xiang:zhang@whiteboard-a8.bd3rw.mongodb.net/projectdb?retryWrites=true&w=majority";
 mongoose.connect(mongoAtlasUri,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 //Configures CORS
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin',  `${process.env.ALLOW_ORIGIN}`);
+    res.header('Access-Control-Allow-Origin',  'http://localhost:3000/');
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested-With, Origin');
     res.header('Access-Control-Allow-Methods',
