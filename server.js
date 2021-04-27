@@ -16,7 +16,7 @@ app.use(session({
 require('dotenv').config();
 
 const cors = require('cors');
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'https://wbdv-sp21-mealfortoday.herokuapp.com'}));
 const mongoose = require('mongoose')
 
 // mongoose.connect('mongodb://localhost:27017/project-db',
@@ -30,7 +30,7 @@ mongoose.connect(mongoAtlasUri,
 
 //Configures CORS
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin',  'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin',  'https://wbdv-sp21-mealfortoday.herokuapp.com');
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested-With, Origin');
     res.header('Access-Control-Allow-Methods',
