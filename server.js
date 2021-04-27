@@ -14,8 +14,11 @@ app.use(session({
 }))
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/project-db',
-    {useNewUrlParser: true, useUnifiedTopology: true})
+// mongoose.connect('mongodb://localhost:27017/project-db',
+//     {useNewUrlParser: true, useUnifiedTopology: true})
+
+mongoose.connect("mongodb+srv://xiang:zhang@whiteboard-a8.bd3rw.mongodb.net/projectdb?retryWrites=true&w=majority",
+    {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 //Configures CORS
@@ -35,4 +38,4 @@ require('./controllers/user-controller')(app)
 require('./controllers/recipes-controller')(app)
 //require('./controllers/favorites-controller')(app)
 
-app.listen(4000)
+app.listen(process.env.PORT || 4000)
