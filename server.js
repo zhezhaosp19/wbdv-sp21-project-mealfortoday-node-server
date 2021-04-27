@@ -29,8 +29,7 @@ mongoose.connect(mongoAtlasUri,
 
 
 //Configures CORS
-app.use(function (req, res,
-    next) {
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin',  `${process.env.ALLOW_ORIGIN}`);
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested-With, Origin');
