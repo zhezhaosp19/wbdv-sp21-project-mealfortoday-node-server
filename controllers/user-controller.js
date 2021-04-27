@@ -57,9 +57,21 @@ module.exports = (app) => {
     }
 
     const logout = (req, res) => {
-        res.clearCookie('profile');
-
-        // res.redirect('/')
+        req.session.destroy(() => {
+            res.clearCookie('profile');
+            console.log("logout successfully")
+            res.redirect('/')
+        });
+        
+        // req.user.save();
+        // req.logout();
+        // res.send("0")
+        
+        // console.log(req)
+        // req.session.destroy(() => {
+        //     req.logout()
+        //     res.redirect('/')
+        // })
     }
 
     const updateProfile = (req, res) => {
@@ -84,13 +96,38 @@ module.exports = (app) => {
     //     UsersService.findProfileByUsername()
     //         .then(profile => res.send(profile))
     // }
+//    const findAllFavoritesForAUser = (req, res) => {
+//        let username = req.params.username
+//        UsersService.findAllFavoritesForAUser(username)
+//            .then()
+//    }
+
+    const findAllUsers = (req, res) => {
+        UsersService.findAllUsers()
+        .then((users) => {
+            res.send(users)
+        })
+    }
+
+    const findUserByName = (req, res) => {
+        const username = req.params['username']
+        UsersService.findUserByUsername(username)
+        .then((user) => {
+            res.send(user)
+        })
+    }
 
 
     app.post('/api/users/register', register)
     app.post('/api/users/profile', profile)
     app.post('/api/users/login', login)
-    app.post('/api/users/logout', logout)
-
+    app.get('/api/users/logout', logout)
     app.post('/api/users/editprofile', updateProfile)
+
+    app.get('/api/users', findAllUsers)
+    app.get('/api/users/:username', findUserByName)
+
+//    app.get('/api/favorites/user/:username', findAllFavoritesForAUser)
+
     // app.get('/api/users/profile', findProfileByUsername)
 }

@@ -19,7 +19,8 @@ module.exports = (app) => {
     }
 
 app.post('/api/favorites/:mealId', addFavoriteToMeal)
-app.get('/api/favorites/:mealId', findAllUsersForAFavorite)
+//app.post('/api/favorites/:username', addFavoriteToUser)
+//app.get('/api/favorites/:mealId', findAllUsersForAFavorite)
+app.get('/api/users/favorites/:mealId', findAllUsersForAFavorite)
 
-app.post('/api/favorites/:username', addFavoriteToUser)
 }

@@ -13,7 +13,7 @@ module.exports = (app) => {
         recipeService.findRecipe(req.params.name)
             .then(recipe => res.json(recipe)))
 
-    app.delete('/api/recipes/:name', (req, res) =>
-        recipeService.deleteRecipe(req.params.name)
-            .then(recipe => res.json(recipe)))
+  app.get('/api/recipes/id/:idMeal', (req, res) =>
+      recipeService.findRecipeById(req.params.idMeal)
+      .then(recipe => res.json(recipe)))
 }
