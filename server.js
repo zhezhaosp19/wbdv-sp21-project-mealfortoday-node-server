@@ -16,7 +16,7 @@ app.use(session({
 require('dotenv').config();
 
 const cors = require('cors');
-app.use(cors({credentials: true, origin: 'https://mealfortoday.herokuapp.com/'}));
+app.use(cors({credentials: true, origin: 'https://wbdv-sp21-mealfortoday.herokuapp.com/'}));
 const mongoose = require('mongoose')
 
 // mongoose.connect('mongodb://localhost:27017/project-db',
