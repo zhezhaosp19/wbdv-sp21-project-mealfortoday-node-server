@@ -86,11 +86,28 @@ module.exports = (app) => {
     // }
 
 
+    const findAllUsers = (req, res) => {
+        UsersService.findAllUsers()
+        .then((users) => {
+            res.send(users)
+        })
+    }
+
+    const findUserByName = (req, res) => {
+        const username = req.params['username']
+        UsersService.findUserByUsername(username)
+        .then((user) => {
+            res.send(user)
+        })
+    }
+
+
     app.post('/api/users/register', register)
     app.post('/api/users/profile', profile)
     app.post('/api/users/login', login)
     app.post('/api/users/logout', logout)
-
     app.post('/api/users/editprofile', updateProfile)
+    app.get('/api/users', findAllUsers)
+    app.get('/api/users/:username', findUserByName)
     // app.get('/api/users/profile', findProfileByUsername)
 }
