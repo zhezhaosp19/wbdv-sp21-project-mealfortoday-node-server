@@ -12,7 +12,7 @@ const findRecipe = (name) =>
     recipesModel.find({strMeal: name})
 
 const deleteRecipe = (name, recipe) =>
-    recipesModel.remove(recipe)
+    recipesModel.deleteOne({strMeal: name})
 
 module.exports = {
     createRecipe,

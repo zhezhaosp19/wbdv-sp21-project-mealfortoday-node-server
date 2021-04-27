@@ -1,13 +1,25 @@
+const favoriteService = require("../services/favorites-service")
+
 module.exports = (app) => {
-
-    const favoritesService = require("../services/favorites-service")
-
-    const profile = (req, res) => {
-        const currUser = req.session['profile']
-        res.send(currUser)
+    const addFavoriteToMeal = (req, res) => {
+        let recipeId = req.params.mealId
+        console.log(recipeId)
+        let username = req.body.username
+        favoriteService.addFavoriteToMeal(recipeId, username)
+            .then(favo => {
+                console.log(favo)
+                res.send(favo)
+            })
     }
 
-//    app.get('/api/favoritesForUser/:username', findAllUsersForAFavorite)
-//    app.post('/api/users/profile', addFavorite)
-//    app.post('/api/users/login', removeFavorite)
+    const findAllUsersForAFavorite = (req, res) => {
+        let recipeId = req.params.mealId
+        favoriteService.findAllUsersForAFavorite(recipeId)
+        .then()
+    }
+
+app.post('/api/favorites/:mealId', addFavoriteToMeal)
+app.get('/api/favorites/:mealId', findAllUsersForAFavorite)
+
+app.post('/api/favorites/:username', addFavoriteToUser)
 }

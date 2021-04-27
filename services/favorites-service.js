@@ -1,24 +1,36 @@
-const favoritesModel = require("../models/favorites-model")
+const favoritesModel = require("../models/favorite/favorite-model")
+const usersModel = require("../models/users-model")
 
 const findAllUsersForAFavorite = (recipeId) => {
-    return favoritesModel.find({recipeId: recipeId}, 'users').exec()
+    return favoritesModel.find({recipeId: recipeId})
+    .populate('favorites').exec()
 }
 
-const addFavorite = (recipeId, user) => {
-    favoritesModel.update(
+const addFavoriteToMeal = (recipeId, username) => {
+    return favoritesModel.updateOne(
+        console.log(username),
         {recipeId: recipeId},
-        {$push: {users: user}},
+        {$push: {users: username}},
         done
     )
 }
 
-const removeFavorite = (recipeId, user) => {
-    favoritesModel.update(
+const removeFavorite = (recipeId, username) => {
+    return favoritesModel.updateOne(
         {recipeId: recipeId},
-        {"$pull": {"users": "user"}}
+        {$pull: {users: username}}
+    )
+}
+
+const addFavoriteToUser = (recipeId, username) => {
+    return usersModel.updateOne(
+        {username: username}, {$push: {favorates, recipeId}}
     )
 }
 
 module.exports = {
-    findAllUsersForAFavorite, addFavorite, removeFavorite
+    findAllUsersForAFavorite, 
+    addFavoriteToMeal, 
+    removeFavorite,
+    addFavoriteToUser
 }
