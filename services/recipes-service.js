@@ -17,9 +17,13 @@ const findRecipeById = (id) => {
 }
 
 
+const deleteRecipe = (name, recipe) =>
+    recipesModel.deleteOne({strMeal: name})
+
 module.exports = {
     createRecipe,
     findAllRecipe,
     findRecipe,
-    findRecipeById
+    findRecipeById,
+    deleteRecipe
 }
