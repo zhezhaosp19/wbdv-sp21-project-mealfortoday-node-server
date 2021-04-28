@@ -23,6 +23,9 @@ const findFavoriteForUserAndMealID = (info) => {
     return favoritesModel.findOne(info)
 }
 
+const deleteFavorite = (info) =>
+    favoritesModel.deleteOne(info)
+
 
 
 module.exports = {
@@ -30,6 +33,7 @@ module.exports = {
     addFavoriteToMeal,
     findAllFavoritesForAUser,
     findAllFavorites,
-    findFavoriteForUserAndMealID
+    findFavoriteForUserAndMealID,
+    deleteFavorite
     // removeFavorite,
 }

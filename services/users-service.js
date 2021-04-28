@@ -9,7 +9,6 @@ const findAllUsers = () => {
     return usersModel.find()
 }
 
-
 const createUser = (newUser) => {
     return usersModel.create(newUser)
 }
