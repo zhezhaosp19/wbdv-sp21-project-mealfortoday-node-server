@@ -43,6 +43,6 @@ app.use(function (req, res, next) {
 require('./controllers/demos.controller')(app)pull
 require('./controllers/user-controller')(app)
 require('./controllers/recipes-controller')(app)
-//require('./controllers/favorites-controller')(app)
+require('./controllers/favorites-controller')(app)
 
 app.listen(process.env.PORT || 4000)
