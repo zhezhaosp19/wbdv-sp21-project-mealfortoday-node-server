@@ -24,18 +24,6 @@ const findFavoriteForUserAndMealID = (info) => {
 }
 
 
-// const removeFavorite = (recipeId, username) => {
-//     return favoritesModel.updateOne(
-//         {recipeId: recipeId},
-//         {$pull: {users: username}}
-//     )
-// }
-
-// const addFavoriteToUser = (recipeId, username) => {
-//     return usersModel.updateOne(
-//         {username: username}, {$push: {favorites, recipeId}}
-//     )
-// }
 
 module.exports = {
     findAllUsersForAFavorite,
