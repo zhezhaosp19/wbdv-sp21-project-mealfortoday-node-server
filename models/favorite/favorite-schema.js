@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const favoritesSchema = mongoose.Schema({
 //    id: String,
-    users: [String],
+    username: String,
     recipeId: String
 }, {collection: 'favorites'})
 
