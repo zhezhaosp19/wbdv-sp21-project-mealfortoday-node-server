@@ -40,7 +40,7 @@ app.use(function (req, res, next) {
 });
 
 
-require('./controllers/demos.controller')(app)
+require('./controllers/demos.controller')(app)pull
 require('./controllers/user-controller')(app)
 require('./controllers/recipes-controller')(app)
 //require('./controllers/favorites-controller')(app)
