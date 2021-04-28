@@ -49,7 +49,7 @@ module.exports = (app) => {
 
 app.post('/api/favorites', addFavoriteToMeal);
 app.get('/api/favorites', findAllFavorites);
-app.get('/api/favorites/:mealId', findAllUsersForAFavorite);
+app.get('/api/favorites/id/:mealId', findAllUsersForAFavorite);
 app.get('/api/favorites/:username', findAllFavoritesForAUser);
 app.get('/api/favorites/:mealId/:username', findFavoriteForUserAndMealID);
 
